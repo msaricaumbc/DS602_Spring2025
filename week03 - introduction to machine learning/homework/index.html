@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Gender Prediction</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="container py-5">
+
+    <div class="form-group">
+        <label for="inputBox" class="font-weight-bold">Enter Name:</label>
+        <input type="text" id="inputBox" class="form-control" placeholder="Type something..." oninput="runInference()">
+    </div>
+    <div id="result" class="alert alert-info mt-3">Prediction: </div>
+
+    <script>
+        function runInference() {
+            const input = document.getElementById('inputBox').value;
+            const prediction = predictOne(input);
+
+            document.getElementById('result').textContent = `Prediction: ${prediction}`;
+        }
+
+        function predictOne(name) {
+            if (typeof name !== 'string') return;
+            name = name.toLowerCase();
+            // enter your code here....
+
+            if (name.match(/[aeiou]$/)) {
+                return 'F';
+            }
+
+            return 'M';
+        }
+    </script>
+
+</body>
+
+</html>
